@@ -23,14 +23,14 @@ Stores user accounts for autentication and role-based access.
 
 |        Field        |        Type       |     Description |
 |-----------------------------------------------------------|
-|         _id         |      ObjectId     | Unique identifier for each user |
-|       username      |       String      | Unique username for login | 
-|        email        |       String      | User's email address   |
-|       password      |       String      | Hashed password      |
-|       role          |       String      | User role    |
-|       isActive      |       Boolean     | Is User active or not   |
-|       createdAt     |       Date        | Records date of creation  |
-|       updatedAt     |       Date        | Last Update timestamp     |
+|         _id         | ObjectId  | Unique identifier for each user |
+|       username      |  String   | Unique username for login | 
+|        email        |  String   | User's email address   |
+|       password      |  String   | Hashed password      |
+|       role          |  String   | User role    |
+|       isActive      |  Boolean  | Is User active or not   |
+|       createdAt     |  Date     | Records date of creation  |
+|       updatedAt     |  Date     | Last Update timestamp     |
 
 
 
@@ -46,13 +46,13 @@ Stores all product details.
 | sku           | String    | Stock keeping unit (unique code)   |
 | categoryId    | ObjectId (ref: Categories) | Linked category   |
 | supplierId    | ObjectId (ref: Suppliers)  | Linked supplier   |
-| description   | String                | Product details       |
-| cost          | Number                | Unit Price  | 
-| price         | Number                | Purchase cost     |
-| stock         | Number                | Current stock quantity  |
-| recorderLevel | Number                | Alert level for low stock |
-| createdAt     | Date                  | Creation timestamp     |
-| updatedAt     | Date                  | Last update timestammp  |
+| description   | String  | Product details       |
+| cost          | Number  | Unit Price  | 
+| price         | Number  | Purchase cost     |
+| stock         | Number  | Current stock quantity  |
+| recorderLevel | Number  | Alert level for low stock |
+| createdAt     | Date    | Creation timestamp     |
+| updatedAt     | Date    | Last update timestammp  |
 
 
 
@@ -96,7 +96,7 @@ Tracks product stock updates (purchases, sales, adjustments).
 Stores sales or purchase orders.
 
 | Field | Type| Description |
-|-------------------------------------------------------|
+|-----------------------------|
 | _id   | ObjectId  | Unique order ID |
 | customerId |  ObjectId (ref: customer)   | Linked customer |
 | items | Array  | List of ordered items |
