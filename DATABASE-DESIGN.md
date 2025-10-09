@@ -92,19 +92,6 @@ Tracks product stock updates (purchases, sales, adjustments).
 | date      | Date   | Date of transaction |
 | note      | String | Optional note   |
 
-## Orders
-Stores sales or purchase orders.
-
-| Field | Type| Description |
-|---------|---------|-------------|
-| _id   | ObjectId  | Unique order ID |
-| customerId |  ObjectId (ref: customer)   | Linked customer |
-| items | Array  | List of ordered items |
-| totalAmount | Number | Total order value |
-| status  | String | Order status (pending, paid, shipped)|
-| createdAt  | Date   | Order date of creation |
-| updatedAt  | Date   | Order update timestamp |
-
 
 
 ## Customers
