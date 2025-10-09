@@ -21,16 +21,16 @@ It describles all collections, their fields (schemas), data types, and relations
 
 Stores user accounts for autentication and role-based access.
 
-|        Field        |        Type       |     Description |
-|-----------------------------------------------------------|
-|         _id         | ObjectId  | Unique identifier for each user |
-|       username      |  String   | Unique username for login | 
-|        email        |  String   | User's email address   |
-|       password      |  String   | Hashed password      |
-|       role          |  String   | User role    |
-|       isActive      |  Boolean  | Is User active or not   |
-|       createdAt     |  Date     | Records date of creation  |
-|       updatedAt     |  Date     | Last Update timestamp     |
+|   Field  |  Type  | Description |
+|---------|---------|-------------|
+| _id | ObjectId  | Unique identifier for each user |
+| username  | String   | Unique username for login | 
+| email  | String   | User's email address |
+| password  | String   | Hashed password |
+| role  | String   | User role |
+| isActive  | Boolean  | Is User active or not   |
+| createdAt | Date  | Records date of creation  |
+| updatedAt | Date  | Last Update timestamp     |
 
 
 
@@ -39,20 +39,20 @@ Stores user accounts for autentication and role-based access.
 Stores all product details.
 
 
-|        Field        |        Type | Description |
-|-------------------------------------------------|
-| _id   |       ObjectId  | Unique identifier for each product |
-| name    |     String    | Unique username for login          |
-| sku           | String    | Stock keeping unit (unique code)   |
-| categoryId    | ObjectId (ref: Categories) | Linked category   |
-| supplierId    | ObjectId (ref: Suppliers)  | Linked supplier   |
-| description   | String  | Product details       |
-| cost          | Number  | Unit Price  | 
-| price         | Number  | Purchase cost     |
-| stock         | Number  | Current stock quantity  |
+|  Field |  Type | Description |
+|---------|---------|-------------|
+| _id   |  ObjectId  | Unique identifier for each product |
+| name  |  String    | Unique username for login          |
+| sku        | String    | Stock keeping unit (unique code)   |
+| categoryId | ObjectId (ref: Categories) | Linked category   |
+| supplierId | ObjectId (ref: Suppliers)  | Linked supplier   |
+| description | String  | Product details |
+| cost   | Number  | Unit Price  | 
+| price  | Number  | Purchase cost     |
+| stock  | Number  | Current stock quantity  |
 | recorderLevel | Number  | Alert level for low stock |
-| createdAt     | Date    | Creation timestamp     |
-| updatedAt     | Date    | Last update timestammp  |
+| createdAt | Date | Creation timestamp     |
+| updatedAt | Date | Last update timestammp  |
 
 
 
@@ -60,7 +60,7 @@ Stores all product details.
 Defines Product categories for organization.
 
 |   Field   |   Type  | Description  |
-|--------------------------------------------------|
+|---------|---------|----------------|
 |  _id       |    ObjectId | Unique category ID    |
 |  name      |    String   | Categoriy name        |
 |  description  | String   | Optional description  |
@@ -70,8 +70,8 @@ Defines Product categories for organization.
 ## Suppliers
 Stores supplier informtion.
 
-|  Field  |  Type  |   Description   |
-|-------------------------------------------------|
+|  Field  | Type |  Description|
+|---------|---------|-------------|
 | _id       |  ObjectId  | Unique supplier ID     |
 | name      |  String    | Supplier name          |
 | email     |  String    | Supplier contact email |
@@ -84,7 +84,7 @@ Stores supplier informtion.
 Tracks product stock updates (purchases, sales, adjustments).
 
 |   Field |  Type  | Description |
-|----------------------------------------------------------|
+|---------|---------|-------------|
 | _id       |  ObjectId   | Unique inventory record ID      |
 | productId |  ObjectId (ref: Products)  | Related product  |
 | quantity  | Number | Quantity changed (+ or -)   |
@@ -96,7 +96,7 @@ Tracks product stock updates (purchases, sales, adjustments).
 Stores sales or purchase orders.
 
 | Field | Type| Description |
-|-----------------------------|
+|---------|---------|-------------|
 | _id   | ObjectId  | Unique order ID |
 | customerId |  ObjectId (ref: customer)   | Linked customer |
 | items | Array  | List of ordered items |
@@ -112,7 +112,7 @@ Stores customer info for orders and invoices.
 
 
 | Field | Type   | Description  |
-|-------------------------------|
+|---------|---------|-------------|
 | _id | ObjectId | Unique customer ID |
 |  name  | String | Full name      |
 |  email | String | Email Address  |
