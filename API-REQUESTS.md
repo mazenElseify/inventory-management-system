@@ -7,7 +7,7 @@
 
 ### Endpoints
 
-| MEthod | Endpoint | Description |
+| Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | /api/users | Get all users |
 | GET | /api/users/:id | Get users by ID |
@@ -52,7 +52,7 @@
 
 ### Endpoints
 
-| MEthod | Endpoint | Description |
+| Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | /api/products | Get all products |
 | GET | /api/products/:id | Get product by ID |
@@ -101,7 +101,7 @@
 
 ### Endpoints
 
-| MEthod | Endpoint | Description |
+| Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | api/categories | List all categories |
 | GET | api/categories/:id | Gets specific category by id |
@@ -138,7 +138,7 @@
 
 ### Endpoints
 
-| MEthod | Endpoint | Description |
+| Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | api/suppliers | Gets all suppliers list |
 | GET | api/suppliers/:id | Get supplier by id |
@@ -176,10 +176,12 @@
 ## Inventory
 
 
-| MEthod | Endpoint | Description |
+| Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | api/inventory | Get all inventory records |
-| POST | api/inventory | Add new inventory transaction |
+| GET | api/inventory/:productId | Get inventory details for specific  |
+| POST | api/inventory/:productId | Add new inventory transaction |
+| PUT | api/inventory:productId | Update stock manually (correction or adjustment) |
 
 <details>
     <summary> Add inventory record (POST api.inventory)</summary>
@@ -213,21 +215,194 @@
 
 ### Endpoints
 
-| MEthod | Endpoint | Description |
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | api/customers | Get all customers |
+| GET | api/customers/:id | Get customer by id |
+| POST | api/customers | create customer |
+| PUT | api/customers/:id | Update customer info |
+| DELETE | api/customers/:id | Delete customer |
+
+<details>
+    <summary> Create Customer (POST api/customers) </summary>
+
+#### Request
+
+```js
+{
+    "name": "mazen",
+    "email": "mazenelseify@gmail.com",
+    "phone" "+20-106-668-6952",
+    "address": "42 ali abd elrazzik st."
+}
+```
+
+#### Response
+
+```js
+{
+    "_id": "c4234r3422w3342rfr43t445331",
+    "name": "mazen",
+    "email": "mazenelseify@gmail.com",
+    "phone": "+20-106-668-6952",
+    "address": "42 ali abd elrazzik st.",
+    "createdAt": "format Date.now()"
+
+}
+```
+</details>
+
+## Orders
+
+### Endpoints
+
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | api/orders | Get all orders | 
+| GET | api/orders/:id | Get order by id |
+| GET | api/orders/customers/:customerId | Get orders by customer |
+| POST | api/orders | add new order |
+| PUT | api/orders/:id | update order |
+
+<details>
+    <summary>Create Order (POST /api/orders)</summary>
+
+#### Request
+
+```js
+{
+    "customerId": "66fa1c2fc43eac2d94f1b140",
+    "items": [
+        {
+            "productId": "66fa1c1fc43eac2d94f1b130",
+            "name": "Apple iPhone 15",
+            "quantity": 2,
+            "price": 999
+        }
+    ],
+    "subtotal": 1998,
+    "tax": 199.8,
+    "discount": 50,
+    "totalAmount": 2147.8,
+    "notes": "Rush order"
+}
+```
+
+#### Response
+
+```js
+{
+    "_id": "66fa1c3fc43eac2d94f1b150",
+    "orderNumber": "ORD-2025-0001",
+    "customerId": "66fa1c2fc43eac2d94f1b140",
+    "items": [
+        {
+            "productId": "66fa1c1fc43eac2d94f1b130",
+            "name": "Apple iPhone 15",
+            "quantity": 2,
+            "price": 999
+        }
+    ],
+    "subtotal": 1998,
+    "tax": 199.8,
+    "discount": 50,
+    "totalAmount": 2147.8,
+    "status": "Pending",
+    "paymentStatus": "Unpaid",
+    "orderDate": "2025-10-07T16:30:00.000Z",
+    "notes": "Rush order"
+}
+```
+</details>
+
+## Purchases
+
+### Endpoint
+
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | api/purchases | Gets all purchases |
+| GET | api/purchases/:id | Get purchase by id |
+| GET | api/purchases/supplier/:supplierId | Get purchase by id |
+| POST | api/purchase | add new purchase |
+| PUT | api/purchases/:id | Update purchase by id |
+
+<details>
+    <summary> Create new purchase (POST api/purchase ) </summary>
+
+#### Request
+
+```js
+{
+    "supplierId": "s6654d9484t8495r83re839",
+    "items": [
+        {
+            "productId": "66fa1c1fc43eac2d94f1b130",
+            "name": "Apple iPhone 15",
+            "quantity": 50,
+            "cost": 700
+        },
+        {
+            "productId": "66fa1c2fc43eac2d94f1b131",
+            "name": "Samsung Galaxy S24",
+            "quantity": 30,
+            "cost": 650
+        }
+    ],
+    "subtotal": 54500,
+    "tax": 5450,
+    "totalCost": 59950,
+    "paymentStatus": "Unpaid",
+    "receivedStatus": "Pending",
+    "purchaseDate": "2025-10-13T10:00:00.000Z",
+    "notes": "Monthly stock replenishment - October 2025",
+    "createdAt": "2025-10-13T10:00:00.000Z",
+    "updatedAt": "2025-10-13T10:00:00.000Z"
+    
+}
+```
+
+
+#### Response
+```js
+{
+    "_id": "66fa353djf543rre4554",
+    "purchaseNumber": "PUR-2025-0003",
+    "supplierId": "s6654d9484t8495r83re839",
+    "items" [
+        {
+            "productId": "ip15pm240501tsrt403d2221",
+            "name": "Iphone 15 pro max",
+            "quantity": 25,
+            "cost": 49,300,
+
+        }
+        {
+            "productId": "sgs242501039sdd392834ef48439",
+            "name": "Samsung galaxy S25 ultra",
+            "quantity": 30,
+            "cost": 60,700,
+
+        }
+    ],
+    "subtotal": 3,053,500,
+    "tax": 200,000,
+    "totalCoast": 3.253,500,
+    "paymentStatus": "Unpaid",
+    "receivedStatus": "Pending",
+    "purchaseDate": "2025-10-13T10:00:00.000Z",
+    "notes": "notes",
+    "createdAt": "2025-10-13T10:00:00.000Z",
+    "updatedAt": "2025-10-13T10:00:00.000Z"
+}
+```
+
+
+| Method | Endpoint | Description |
 |--------|----------|-------------|
 
 
-| MEthod | Endpoint | Description |
-|--------|----------|-------------|
-
-
-| MEthod | Endpoint | Description |
-|--------|----------|-------------|
-
-
-| MEthod | Endpoint | Description |
-|--------|----------|-------------|
-
-
-| MEthod | Endpoint | Description |
+| Method | Endpoint | Description |
 |--------|----------|-------------|

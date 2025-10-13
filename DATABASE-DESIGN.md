@@ -108,7 +108,7 @@ Stores customer info for orders and invoices.
 |  email | String | Email Address  |
 |  phone | String | Phone number   |
 |  address | String | Customer address      |
-|  createdat  | date | record creation date  |
+|  createdAt  | date | record creation date  |
 
 ## Orders
 Represents customer sales orders — when a customer requests or buys products from the inventory.
