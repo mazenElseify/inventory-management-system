@@ -110,18 +110,108 @@
 | DELETE | api/categories/:id | Delete category |
 
 <details>
-    <summary>Create Category (POST api.category)</summary>
-    
+    <summary>Create Category (POST api/categories)</summary>
+
+#### Request
+
+```js
+{
+    "name": "Electronics",
+    "description": "Category description"
+}
+
+```
+#### Response
+```js 
+{
+    "_id": "J4349D334FG84338249F38",
+    "name": "Electronics",
+    "description": "Cateory description",
+    "createdAt": "2025-10-07T15:30:00.000Z"
+}
+```
+
 </details>
 
 
+## Supplier
+
+### Endpoints
+
 | MEthod | Endpoint | Description |
 |--------|----------|-------------|
+| GET | api/suppliers | Gets all suppliers list |
+| GET | api/suppliers/:id | Get supplier by id |
+| POST | api/suppliers | Creates new supplier |
+| PUT | api/suppliers/:id | Update specific supplier |
+| DELETE | api/suppliers/:id | Delete supplier |
+
+<details>
+    <summary> Create supplier (POST api/suppliers) </summary>
+
+#### Request
+
+```js
+{
+    "name": "T&T",
+    "email": "T&T@gmail.com",
+    "phone": "+20-106-668-6952",
+    "address": "21 abbas el aqad st"
+}
+```
+#### Response
+```js
+{
+    "_id": "s483tf843e394rr84485s21",
+    "name": "T&T",
+    "email": "T&T@gmail.com",
+    "phone": "+20-106-668-6952",
+    "address": "21 abbas el aqad st",
+     "createdAt": "2025-10-07T15:30:00.000Z"
+}
+```
+    
+</details>
+
+## Inventory
 
 
 | MEthod | Endpoint | Description |
 |--------|----------|-------------|
+| GET | api/inventory | Get all inventory records |
+| POST | api/inventory | Add new inventory transaction |
 
+<details>
+    <summary> Add inventory record (POST api.inventory)</summary>
+
+#### Request
+
+```js
+{
+    "productId": "66fa1c1fc43eac2d94f1b130",
+    "quantity": "30",
+    "tpye": "purchase",
+    "note": "initial stock"
+}
+```
+#### Response
+
+```js
+{
+    "_id": "ip5739r3943f83944228e3193857",
+    "productId": "66fa1c1fc43eac2d94f1b130",
+    "quantity": "30",
+    "type": "purchase",
+    "date": "date.now()",
+    "note": "initial stock"
+
+}
+```
+</details>
+
+## Customers
+
+### Endpoints
 
 | MEthod | Endpoint | Description |
 |--------|----------|-------------|
