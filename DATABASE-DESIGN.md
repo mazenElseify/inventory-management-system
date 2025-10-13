@@ -15,6 +15,9 @@ It describles all collections, their fields (schemas), data types, and relations
 5. Inventory
 6. Orders
 7. Customers
+8. Transactions
+9. Purchaases
+10. Invoices
 
 
 ## Users
