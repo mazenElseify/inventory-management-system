@@ -399,10 +399,117 @@
 }
 ```
 
+## Transactions
+
+### Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
+| GET | api/transactions | Get all transactions |
+| GET | api/transactions/:id | get transaction by id | 
+| GET | api/transactions/type/:type | Get transactions by type (income or expense) |
+| GET | api/transactions/purchase/:purchaseId | Get transaction for specific purchase |
+| GET | api/transactions/order/:orderId | Get transaction for specific order |
+| POST | api/transactions | Create new transaction |
+| PUT | api/transactions/:id | update transaction |
+| POST | api/transactions/:id | reversed transaction |
 
+
+<details> 
+    <summary>Create Transaction (POST /api/transactions)</summary>
+
+#### Request
+```js
+{
+    "type": "Expense",
+    "relatedPurchaseId": "66fa353djf543rre4554",
+    "amount": 3253500,
+    "method": "BankTransfer",
+    "description": "Payment for Purchase PUR-2025-0003"
+}
+```
+
+#### Response
+```js
+{
+    "_id": "66fa1c5fc43eac2d94f1b170",
+    "transactionNumber": "TRX-2025-0115",
+    "type": "Expense",
+    "relatedPurchaseId": "66fa353djf543rre4554",
+    "amount": 3253500,
+    "method": "BankTransfer",
+    "date": "2025-10-13T14:30:00.000Z",
+    "description": "Payment for Purchase PUR-2025-0003",
+    "status": "Completed"
+}
+```
+
+## Invoices
+
+### Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
+| GET | api/invoices | gets all invoices |
+| GET | api/invoices/:id | Get invooice by id | 
+| GET | api/invoices/customer/:customerId | Get invoices by customer id |
+| GET | api/invoices/order/:orderId | Get invoice by orderId |
+| POST | api/invoices | Create new invoice |
+| PUT | api/invoices/:id | Update invoice |
+
+<details>
+    <summary>Create Invoice (POST /api/invoices)</summary>
+
+#### Request
+
+```js
+{
+    "orderId": "66fa1c3fc43eac2d94f1b150",
+    "customerId": "c4234r3422w3342rfr43t445331",
+    "items": [
+        {
+            "productId": "66fa1c1fc43eac2d94f1b130",
+            "name": "Apple iPhone 15",
+            "quantity": 2,
+            "price": 999
+        }
+    ],
+    "subtotal": 1998,
+    "tax": 199.8,
+    "discount": 50,
+    "totalAmount": 2147.8,
+    "dueDate": "2025-10-27T00:00:00.000Z",
+    "notes": "Net 14 
+}
+```
+
+
+#### Response
+
+```js
+{
+    "_id": "66fa1c7fc43eac2d94f1b180",
+    "invoiceNumber": "INV-2025-0020",
+    "orderId": "66fa1c3fc43eac2d94f1b150",
+    "customerId": "c4234r3422w3342rfr43t445331",
+    "items": [
+        {
+            "productId": "66fa1c1fc43eac2d94f1b130",
+            "name": "Apple iPhone 15",
+            "quantity": 2,
+            "price": 999
+        }
+    ],
+    "subtotal": 1998,
+    "tax": 199.8,
+    "discount": 50,
+    "totalAmount": 2147.8,
+    "paymentStatus": "Unpaid",
+    "issuedDate": "2025-10-13T16:00:00.000Z",
+    "dueDate": "2025-10-27T00:00:00.000Z",
+    "notes": "Net 14 payment terms",
+    "createdAt": "2025-10-13T16:00:00.000Z",
+    "updatedAt": "2025-10-13T16:00:00.000Z"
+}
+```
+</details>
