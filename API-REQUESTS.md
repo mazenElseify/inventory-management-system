@@ -398,6 +398,7 @@
     "updatedAt": "2025-10-13T10:00:00.000Z"
 }
 ```
+</details>
 
 ## Transactions
 
@@ -443,7 +444,7 @@
     "status": "Completed"
 }
 ```
-
+</details>
 ## Invoices
 
 ### Endpoints
