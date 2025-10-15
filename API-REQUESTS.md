@@ -89,7 +89,6 @@
   "sku": "IP15-BLK-128",
   "categoryId": "66fa1babc43eac2d94f1b111",
   "description": "128GB, Black color, latest model",
-  "cost": 700,
   "price": 999,
   "stock": 25,
 }
@@ -187,6 +186,60 @@
 ```
     
 </details>
+
+## ProductSuppliers
+
+### Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /productSuppliers | Gets all products with suppliers relationship |
+| GET | /productSuppliers/:id | Gets the relationship between specific product and supplier |
+| GET | /products/:productId/suppliers | Gets all the relationships between specific product and suppliers |
+| GET | /suppliers/:supplierId/products | Gets all the products supplied by the the supplier |
+| GET | /products/:productId/suppliers/best?criteria=price | Gets the best supplier price by product ID |
+| POST | /productSuppliers | links product to supplier |
+| PUT | /productSuppliers/:id | Update relationship details between specific product and supplier |
+| DELETE | /productSuppliers/:id | Delete relationship |
+
+<details>
+    <summary>Create new relationship (POST api/productSuppliers)</summary>
+
+#### Request
+ ```js
+ {
+    "productId": "P3372IP47281DJ2932812",
+    "supplierId": "S3282E92W291822S2839",
+    "isPrimary": false,
+    "isActive": true,
+    "cost": 30000,
+    "minimumOrderQuantity": 20,
+    "supplierProductCode": "P38-1W88-25AUG"
+ }
+
+ 
+ ```
+ #### Response
+
+ ```js
+{
+    "_id": "PSS08M10Y25",
+    "productId": "P3372IP47281DJ2932812",
+    "supplierId": "S3282E92W291822S2839",
+    "isPrimary": false,
+    "isActive": true,
+    "cost": 30000,
+    "minimumOrderQuantity": 20,
+    "supplierProductCode": "P138-1W88-25AUG",
+    "createdAt": "2025-10-15T14:30:00.000Z",
+    "updatedAt": "2025-10-15T14:30:00.000Z"
+}
+ ```
+
+
+</details>
+
+
 
 ## Inventory
 

@@ -48,9 +48,7 @@ Stores all product details.
 | name  |  String    | Unique username for login          |
 | sku        | String    | Stock keeping unit (unique code)   |
 | categoryId | ObjectId (ref: Categories) | Linked category   |
-| supplierId | ObjectId (ref: Suppliers)  | Linked supplier   |
 | description | String  | Product details |
-| cost   | Number  | Unit Price  | 
 | price  | Number  | Purchase cost     |
 | stock  | Number  | Current stock quantity  |
 | recorderLevel | Number  | Alert level for low stock |
@@ -82,6 +80,21 @@ Stores supplier informtion.
 | address   |  String   | Record creation date   |
 | createdAt |  Date     | Record date of creation |
 
+## ProductSuppliers
+Handles the relation between a product and suppliers.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| _id | ObjectId | Unique ID |
+| productId | ObjectId | Product ID (ref)|
+| supplierId | ObjectId | Supplier ID (ref)|
+| isPrimary | Boolean | is this supplier is the main supplier that i deal with |
+| isActive | Boolean | is this supplier relationship active |
+| cost | Number | The cost of the product that the specified supplier usal offers me |
+| minimumOrderQuantity | Number | The minimum quantity that the supplier suply |
+| supplierProductCode | String | Supplier sku for this product |
+| createdAt | Date | Date of relationship created at |
+| updatedAt | Date | Last update date |
 
 ## Inventory
 Tracks product stock updates (purchases, sales, adjustments).
