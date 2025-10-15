@@ -9,16 +9,16 @@
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | /api/users | Get all users |
-| GET | /api/users/:id | Get users by ID |
-| POST | /api/users | create new user |
-| PUT | /api/users/:id | Update user |
-|DELETE | /api/users/:id | Delete user |
+| GET | /users | Get all users |
+| GET | /users/:id | Get users by ID |
+| POST | /users | Create new user |
+| PUT | /users/:id | Update user |
+|DELETE | /users/:id | Delete user |
 
 
 
 <details>
-    <summary>Create User (POST /api/users) </summary>
+    <summary>Create User (POST /users) </summary>
 
 #### Request
 
@@ -48,20 +48,38 @@
 ```
 </details>
 
+## Auth
+
+### Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | /auth/register | User registration |
+| POST | /auth/login | User login (public)|
+| POST | /auth/logout | User logout |
+| POST | /auth/refresh | Refresh token |
+| POST | /auth/forgot-password | Request to reset password (public) |
+| POST | /auth/reset-password | reset password with token (public) |
+| POST | /auth/change-password | change user password (public) |
+| POST | /auth/verify | verify if user is authenticated |
+| GET | /auth/me | Get user current profile |
+| DELETE | /auth/revoke | revokes token session |
+
+
 ## Products
 
 ### Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | /api/products | Get all products |
-| GET | /api/products/:id | Get product by ID |
-| POST | /api/products | Insert new product |
-| PUT | /api/products/:id | Update product | 
-| DELETE | /api/products/:id | Delete product |
+| GET | /products | Get all products |
+| GET | /products/:id | Get product by ID |
+| POST | /products | Insert new product |
+| PUT | /products/:id | Update product | 
+| DELETE | /products/:id | Delete product |
 
 <details>
-    <summary> Create Product (POST /api/products) </summary>
+    <summary> Create Product (POST /products) </summary>
 
 #### Request
 
@@ -70,12 +88,10 @@
   "name": "Apple iPhone 15",
   "sku": "IP15-BLK-128",
   "categoryId": "66fa1babc43eac2d94f1b111",
-  "supplierId": "66fa1bb3c43eac2d94f1b112",
   "description": "128GB, Black color, latest model",
   "cost": 700,
   "price": 999,
   "stock": 25,
-  "recorderLevel": 5
 }
 ```
 
@@ -89,7 +105,6 @@
   "price": 999,
   "stock": 25,
   "categoryId": "66fa1babc43eac2d94f1b111",
-  "supplierId": "66fa1bb3c43eac2d94f1b112",
   "createdAt": "2025-10-07T15:20:00.000Z"
 }
 
@@ -103,14 +118,14 @@
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | api/categories | List all categories |
-| GET | api/categories/:id | Gets specific category by id |
-| POST | api/categories | Create new category |
-| PUT | api/categories/:id | Update category |
-| DELETE | api/categories/:id | Delete category |
+| GET | /categories | List all categories |
+| GET | /categories/:id | Gets specific category by id |
+| POST | /categories | Create new category |
+| PUT | /categories/:id | Update category |
+| DELETE | /categories/:id | Delete category |
 
 <details>
-    <summary>Create Category (POST api/categories)</summary>
+    <summary>Create Category (POST /categories)</summary>
 
 #### Request
 
@@ -134,20 +149,20 @@
 </details>
 
 
-## Supplier
+## Suppliers
 
 ### Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | api/suppliers | Gets all suppliers list |
-| GET | api/suppliers/:id | Get supplier by id |
-| POST | api/suppliers | Creates new supplier |
-| PUT | api/suppliers/:id | Update specific supplier |
-| DELETE | api/suppliers/:id | Delete supplier |
+| GET | /suppliers | Gets all suppliers list |
+| GET | /suppliers/:id | Get supplier by id |
+| POST | /suppliers | Creates new supplier |
+| PUT | /suppliers/:id | Update specific supplier |
+| DELETE | /suppliers/:id | Delete supplier |
 
 <details>
-    <summary> Create supplier (POST api/suppliers) </summary>
+    <summary> Create supplier (POST /suppliers) </summary>
 
 #### Request
 
@@ -178,13 +193,13 @@
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | api/inventory | Get all inventory records |
-| GET | api/inventory/:productId | Get inventory details for specific  |
-| POST | api/inventory/:productId | Add new inventory transaction |
-| PUT | api/inventory:productId | Update stock manually (correction or adjustment) |
+| GET | /inventory | Get all inventory records |
+| GET | /inventory/:productId | Get inventory details for specific  |
+| POST | /inventory/:productId | Add new inventory transaction |
+| PUT | /inventory:productId | Update stock manually (correction or adjustment) |
 
 <details>
-    <summary> Add inventory record (POST api.inventory)</summary>
+    <summary> Add inventory record (POST /inventory/:productId)</summary>
 
 #### Request
 
@@ -192,7 +207,7 @@
 {
     "productId": "66fa1c1fc43eac2d94f1b130",
     "quantity": "30",
-    "tpye": "purchase",
+    "type": "purchase",
     "note": "initial stock"
 }
 ```
@@ -217,14 +232,14 @@
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | api/customers | Get all customers |
-| GET | api/customers/:id | Get customer by id |
-| POST | api/customers | create customer |
-| PUT | api/customers/:id | Update customer info |
-| DELETE | api/customers/:id | Delete customer |
+| GET | /customers | Get all customers |
+| GET | /customers/:id | Get customer by id |
+| POST | /customers | create customer |
+| PUT | /customers/:id | Update customer info |
+| DELETE | /customers/:id | Delete customer |
 
 <details>
-    <summary> Create Customer (POST api/customers) </summary>
+    <summary> Create Customer (POST /customers) </summary>
 
 #### Request
 
@@ -232,7 +247,7 @@
 {
     "name": "mazen",
     "email": "mazenelseify@gmail.com",
-    "phone" "+20-106-668-6952",
+    "phone": "+20-106-668-6952",
     "address": "42 ali abd elrazzik st."
 }
 ```
@@ -259,14 +274,14 @@
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | api/orders | Get all orders | 
-| GET | api/orders/:id | Get order by id |
-| GET | api/orders/customers/:customerId | Get orders by customer |
-| POST | api/orders | add new order |
-| PUT | api/orders/:id | update order |
+| GET | /orders | Get all orders | 
+| GET | /orders/:id | Get order by id |
+| GET | /orders/customers/:customerId | Get orders by customer |
+| POST | /orders | add new order |
+| PUT | /orders/:id | update order |
 
 <details>
-    <summary>Create Order (POST /api/orders)</summary>
+    <summary>Create Order (POST /orders)</summary>
 
 #### Request
 
@@ -278,13 +293,11 @@
             "productId": "66fa1c1fc43eac2d94f1b130",
             "name": "Apple iPhone 15",
             "quantity": 2,
-            "price": 999
+            "price": 999,
+            "totalPrice": 1998
         }
     ],
     "subtotal": 1998,
-    "tax": 199.8,
-    "discount": 50,
-    "totalAmount": 2147.8,
     "notes": "Rush order"
 }
 ```
@@ -301,7 +314,8 @@
             "productId": "66fa1c1fc43eac2d94f1b130",
             "name": "Apple iPhone 15",
             "quantity": 2,
-            "price": 999
+            "price": 999,
+            "totalPrice": 1998
         }
     ],
     "subtotal": 1998,
@@ -323,14 +337,14 @@
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | api/purchases | Gets all purchases |
-| GET | api/purchases/:id | Get purchase by id |
-| GET | api/purchases/supplier/:supplierId | Get purchase by id |
-| POST | api/purchase | add new purchase |
-| PUT | api/purchases/:id | Update purchase by id |
+| GET | /purchases | Gets all purchases |
+| GET | /purchases/:id | Get purchase by id |
+| GET | /purchases/supplier/:supplierId | Get purchase by id |
+| POST | /purchases | add new purchase |
+| PUT | /purchases/:id | Update purchase by id |
 
 <details>
-    <summary> Create new purchase (POST api/purchase ) </summary>
+    <summary> Create new purchase (POST /purchase ) </summary>
 
 #### Request
 
@@ -342,24 +356,22 @@
             "productId": "66fa1c1fc43eac2d94f1b130",
             "name": "Apple iPhone 15",
             "quantity": 50,
-            "cost": 700
+            "cost": 700,
+            "totalCost": 35,000
         },
         {
             "productId": "66fa1c2fc43eac2d94f1b131",
             "name": "Samsung Galaxy S24",
             "quantity": 30,
-            "cost": 650
+            "cost": 650,
+            "totalCost": 19,500
         }
     ],
     "subtotal": 54500,
-    "tax": 5450,
-    "totalCost": 59950,
     "paymentStatus": "Unpaid",
     "receivedStatus": "Pending",
     "purchaseDate": "2025-10-13T10:00:00.000Z",
     "notes": "Monthly stock replenishment - October 2025",
-    "createdAt": "2025-10-13T10:00:00.000Z",
-    "updatedAt": "2025-10-13T10:00:00.000Z"
     
 }
 ```
@@ -377,6 +389,7 @@
             "name": "Iphone 15 pro max",
             "quantity": 25,
             "cost": 49,300,
+            "totalCost": 1,232,500
 
         }
         {
@@ -384,12 +397,13 @@
             "name": "Samsung galaxy S25 ultra",
             "quantity": 30,
             "cost": 60,700,
+            "totalCost": 1,821,000
 
         }
     ],
     "subtotal": 3,053,500,
     "tax": 200,000,
-    "totalCoast": 3.253,500,
+    "totalCost": 3.253,500,
     "paymentStatus": "Unpaid",
     "receivedStatus": "Pending",
     "purchaseDate": "2025-10-13T10:00:00.000Z",
@@ -406,24 +420,24 @@
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | api/transactions | Get all transactions |
-| GET | api/transactions/:id | get transaction by id | 
-| GET | api/transactions/type/:type | Get transactions by type (income or expense) |
-| GET | api/transactions/purchase/:purchaseId | Get transaction for specific purchase |
-| GET | api/transactions/order/:orderId | Get transaction for specific order |
-| POST | api/transactions | Create new transaction |
-| PUT | api/transactions/:id | update transaction |
-| POST | api/transactions/:id | reversed transaction |
+| GET | /transactions | Get all transactions |
+| GET | /transactions/:id | get transaction by id | 
+| GET | /transactions/type/:type | Get transactions by type (income or expense) |
+| GET | /transactions/purchase/:purchaseId | Get transaction for specific purchase |
+| GET | /transactions/order/:orderId | Get transaction for specific order |
+| POST | /transactions | Create new transaction |
+| PUT | /transactions/:id | update transaction |
+| POST | /transactions/:id | reversed transaction |
 
 
 <details> 
-    <summary>Create Transaction (POST /api/transactions)</summary>
+    <summary>Create Transaction (POST /transactions)</summary>
 
 #### Request
 ```js
 {
     "type": "Expense",
-    "relatedPurchaseId": "66fa353djf543rre4554",
+    "purchaseId": "66fa353djf543rre4554",
     "amount": 3253500,
     "method": "BankTransfer",
     "description": "Payment for Purchase PUR-2025-0003"
@@ -445,21 +459,22 @@
 }
 ```
 </details>
+
 ## Invoices
 
 ### Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | api/invoices | gets all invoices |
-| GET | api/invoices/:id | Get invooice by id | 
-| GET | api/invoices/customer/:customerId | Get invoices by customer id |
-| GET | api/invoices/order/:orderId | Get invoice by orderId |
-| POST | api/invoices | Create new invoice |
-| PUT | api/invoices/:id | Update invoice |
+| GET | /invoices | gets all invoices |
+| GET | /invoices/:id | Get invoice by id | 
+| GET | /invoices/customer/:customerId | Get invoices by customer id |
+| GET | /invoices/order/:orderId | Get invoice by orderId |
+| POST | /invoices | Create new invoice |
+| PUT | /invoices/:id | Update invoice |
 
 <details>
-    <summary>Create Invoice (POST /api/invoices)</summary>
+    <summary>Create Invoice (POST /invoices)</summary>
 
 #### Request
 
