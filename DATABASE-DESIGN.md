@@ -101,11 +101,13 @@ Tracks product stock updates (purchases, sales, adjustments).
 
 |   Field |  Type  | Description |
 |---------|---------|-------------|
-| _id       |  ObjectId   | Unique inventory record ID      |
-| productId |  ObjectId (ref: Products)  | Related product  |
+| _id       | ObjectId | Unique inventory record ID      |
+| productId | ObjectId | (ref: Products)  | Related product  |
 | quantity  | Number | Quantity changed (+ or -)   |
-| type      | String | Type of update (purchase, sale, adjust)|
-| date      | Date   | Date of transaction |
+| referenceId | ObjectId | Reference to related record |
+| referenceType | String | Type of update (purchase, sale, adjust, )|
+| createdAt | Date | Date of transaction |
+| createdBy | ObjectId | CreatedBy userId (who made this change) |
 | note      | String | Optional note   |
 
 

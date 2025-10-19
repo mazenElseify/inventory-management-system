@@ -249,7 +249,7 @@
 | GET | /inventory | Get all inventory records |
 | GET | /inventory/:productId | Get inventory details for specific  |
 | POST | /inventory/:productId | Add new inventory transaction |
-| PUT | /inventory:productId | Update stock manually (correction or adjustment) |
+| PUT | /inventory/:productId | Update stock manually (correction or adjustment) |
 
 <details>
     <summary> Add inventory record (POST /inventory/:productId)</summary>
@@ -259,8 +259,9 @@
 ```js
 {
     "productId": "66fa1c1fc43eac2d94f1b130",
-    "quantity": "30",
-    "type": "purchase",
+    "quantity": 30,
+    "referenceId": "PUR-15-5-2025",
+    "referenceType": "purchase",
     "note": "initial stock"
 }
 ```
@@ -271,8 +272,9 @@
     "_id": "ip5739r3943f83944228e3193857",
     "productId": "66fa1c1fc43eac2d94f1b130",
     "quantity": "30",
-    "type": "purchase",
-    "date": "date.now()",
+    "referenceType": "purchase",
+    "createdAt": "date.now()",
+    "createdBy": "userId",
     "note": "initial stock"
 
 }
